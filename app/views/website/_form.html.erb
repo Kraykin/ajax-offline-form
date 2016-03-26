@@ -1,3 +1,6 @@
+<script>
+  var collection_urls = [];
+</script>
 <div class="header">
   <div class="splash">
     <div class="container">
@@ -13,11 +16,30 @@
                 <input type="text" name="website_url" id="website_url" class="text">
               </p>
               <p>
-                <button class="button orange" type="submit">Add URL</button>
+                <button class="button orange" type="submit" onclick="$(this).parents('form').submit(); return false;">Add URL</button>
               </p>
           </form>
     
       </div>
     </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="center-feature">
+    <p class="feature-description">
+      <table class="centered">
+        <tbody>
+          <% @websites.each do |url| %>
+            <tr>
+              <td><%= url.url %></td>
+              <script>
+                collection_urls.push("<%= url.url %>");
+              </script>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </p>  
   </div>
 </div>

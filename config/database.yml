@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  database: rails-code-test_development
+  database: rails-code-test__development
   username: ruby
   password: "12345677"
   host: localhost
@@ -61,7 +61,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: rails-code-test_test
+  database: rails-code-test__test
   username: ruby
   password: "12345677"
   host: localhost
@@ -87,6 +87,6 @@ test:
 #
 production:
   <<: *default
-  database: rails-code-test_production
+  database: rails-code-test__production
   username: rails-code-test
   password: <%= ENV['RAILS-CODE-TEST_DATABASE_PASSWORD'] %>
