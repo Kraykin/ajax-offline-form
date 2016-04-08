@@ -13,6 +13,18 @@ $(document).ready(function() {
         url_list.push(display_url);
         $("#website_url").val("");
         collection_urls.push(display_url);
+        $.ajax({
+          url: "/web_urls",
+          type: "post",
+          data: {url_list: url_list},
+          success: function(response, textStatus, jqXHR){
+            url_list.pop(response); 
+          },
+          error: function(jqXHR, textStatus, errorThrown){
+          },
+          complete: function(){
+          }
+        });
       }
     }
     return false;
